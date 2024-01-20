@@ -19,14 +19,14 @@ if __name__ == "__main__":
     a, b, c, d = factorize(128, 255, 99999, 10651060)
     sleep(0.5)
     end = time()
-    print(f"Synchronous function execution time: {end - start} sec.")  # 1.16
+    print(f"Synchronous function execution time: {end - start} sec.")
 
     with Pool(cpu_count()) as p:
         start = time()
         p.map_async(factorize, (128, 255, 99999, 10651060))
         sleep(0.5)
         end = time()
-        print(f"Execution time of the optimized version: {end - start} sec.")  # 0.5003
+        print(f"Execution time of the optimized version: {end - start} sec.")
         p.close()
         p.join()
 
